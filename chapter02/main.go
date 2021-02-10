@@ -6,7 +6,7 @@ import (
 )
 
 func helloHandler(w http.ResponseWriter, r *http.Request) {
-	fmt.Print("Another request")
+	w.Header().Set("Content-Type", "text/html")
 	fmt.Fprint(w, "<h1>Hello James, you big eejit! Up Leitrim</h1>")
 }
 
