@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"net/http"
 
+	"githb.com/jamesvrooney/go_web_dev_with_jc/chapter02/handlers"
 	"github.com/gorilla/mux"
 )
 
@@ -23,8 +24,8 @@ func helloHandler(w http.ResponseWriter, r *http.Request) {
 func main() {
 	router := mux.NewRouter()
 
-	router.HandleFunc("/", helloHandler)
-	router.HandleFunc("/contact", helloHandler)
+	router.HandleFunc("/", handlers.Hello)
+	router.HandleFunc("/contact", handlers.Contact)
 
 	http.ListenAndServe(":3000", router)
 }
