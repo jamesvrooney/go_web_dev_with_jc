@@ -24,6 +24,7 @@ func main() {
 	router := mux.NewRouter()
 
 	router.HandleFunc("/", helloHandler)
+	router.HandleFunc("/contact", helloHandler)
 
 	http.ListenAndServe(":3000", router)
 }
