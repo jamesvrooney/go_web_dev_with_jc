@@ -1,11 +1,29 @@
 package handlers
 
 import (
-	"fmt"
+	"html/template"
 	"net/http"
 )
 
+type user struct {
+	Name string
+}
+
 // Hello Handles requests to /hello
 func Hello(writer http.ResponseWriter, request *http.Request) {
-	fmt.Fprint(writer, "<h1>Chapter 04</h1>")
+	tmp, err := template.ParseFiles("templates/hello.html")
+
+	if err != nil {
+		panic(err)
+	}
+
+	james := user{
+		Name: "James",
+	}
+
+	err = tmp.Execute(writer, james)
+
+	if err != nil {
+		panic(err)
+	}
 }
