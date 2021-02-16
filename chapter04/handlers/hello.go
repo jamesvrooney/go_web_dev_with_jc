@@ -11,6 +11,7 @@ type user struct {
 
 // Hello Handles requests to /hello
 func Hello(writer http.ResponseWriter, request *http.Request) {
+
 	tmp, err := template.ParseFiles("templates/hello.html")
 
 	if err != nil {
